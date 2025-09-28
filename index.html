@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Next Gen AI Calendar</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <h1 class="header-title">Next Gen Event Calendar</h1>
+        <div class="header-subtitle">
+          AI Based Intelligent Calendar Management System
+        </div>
+      </header>
+
+      <!-- Landing Page -->
+      <section id="landing-page" class="page active">
+        <div class="page-container">
+          <h2 class="page-title">Search Calendar Events</h2>
+          <div class="form-container">
+            <div class="form-group">
+              <label for="job-description" class="form-label"
+                >Job Description / Role</label
+              >
+              <input
+                type="text"
+                id="job-description"
+                class="form-input"
+                placeholder="Enter job description or role..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="month-select" class="form-label">Month</label>
+              <div class="month-input-container">
+                <input
+                  type="text"
+                  id="month-select"
+                  class="form-input month-input"
+                  placeholder="Select month"
+                  readonly
+                />
+                <div class="spinner-container">
+                  <button type="button" class="spinner-btn" id="month-up">
+                    <i class="fas fa-chevron-up"></i>
+                  </button>
+                  <button type="button" class="spinner-btn" id="month-down">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="btn-primary" id="apply-btn">
+              <span>Apply</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results Page -->
+      <section id="results-page" class="page">
+        <div class="page-container">
+          <h2 class="page-title">Search Results</h2>
+          <div class="results-container">
+            <div class="result-item" data-date="2024-08-01">
+              <div class="result-header">
+                <span class="result-date">August - 01/08</span>
+              </div>
+              <div class="result-content">
+                <input
+                  type="text"
+                  class="result-description"
+                  placeholder="--- Brief Description ---"
+                  readonly
+                />
+                <button
+                  type="button"
+                  class="btn-details"
+                  data-target="details-1"
+                >
+                  <span>DETAILS</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="result-item" data-date="2024-08-02">
+              <div class="result-header">
+                <span class="result-date">August - 02/08</span>
+              </div>
+              <div class="result-content">
+                <input
+                  type="text"
+                  class="result-description"
+                  placeholder="--- Brief Description ---"
+                  readonly
+                />
+                <button
+                  type="button"
+                  class="btn-details"
+                  data-target="details-2"
+                >
+                  <span>DETAILS</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="result-item" data-date="2024-09-01">
+              <div class="result-header">
+                <span class="result-date">September - 01/09</span>
+              </div>
+              <div class="result-content">
+                <input
+                  type="text"
+                  class="result-description"
+                  placeholder="--- Brief Description ---"
+                  readonly
+                />
+                <button
+                  type="button"
+                  class="btn-details"
+                  data-target="details-3"
+                >
+                  <span>DETAILS</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="navigation-buttons">
+            <button type="button" class="btn-secondary" id="back-to-search">
+              <i class="fas fa-arrow-left"></i>
+              <span>Back to Search</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Advanced Details Page -->
+      <section id="details-page" class="page">
+        <div class="page-container">
+          <h2 class="page-title">Advanced Details</h2>
+          <div class="details-container">
+            <div class="form-group">
+              <label for="event-title" class="form-label">Title</label>
+              <input
+                type="text"
+                id="event-title"
+                class="form-input"
+                placeholder="Enter event title..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="event-link" class="form-label">Link</label>
+              <input
+                type="url"
+                id="event-link"
+                class="form-input"
+                placeholder="Enter event link..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="event-date" class="form-label">Date</label>
+              <div class="date-input-container">
+                <input
+                  type="number"
+                  id="day"
+                  class="date-input"
+                  placeholder="DD"
+                  min="1"
+                  max="31"
+                />
+                <span class="date-separator">/</span>
+                <input
+                  type="number"
+                  id="month"
+                  class="date-input"
+                  placeholder="MM"
+                  min="1"
+                  max="12"
+                />
+                <span class="date-separator">/</span>
+                <input
+                  type="number"
+                  id="year"
+                  class="date-input"
+                  placeholder="YYYY"
+                  min="2024"
+                  max="2030"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="event-time" class="form-label">Time</label>
+              <div class="time-input-container">
+                <input
+                  type="number"
+                  id="hours"
+                  class="time-input"
+                  placeholder="HH"
+                  min="0"
+                  max="23"
+                />
+                <span class="time-separator">:</span>
+                <input
+                  type="number"
+                  id="minutes"
+                  class="time-input"
+                  placeholder="MM"
+                  min="0"
+                  max="59"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="navigation-buttons">
+            <button type="button" class="btn-secondary" id="back-to-results">
+              <i class="fas fa-arrow-left"></i>
+              <span>Back to Results</span>
+            </button>
+            <button type="button" class="btn-add" id="add-event">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+      <div class="loading-spinner">
+        <i class="fas fa-spinner fa-spin"></i>
+        <p>Processing your request...</p>
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <i class="fas fa-check-circle"></i>
+          <h3>Event Added Successfully</h3>
+        </div>
+        <div class="modal-body">
+          <p>Your calendar event has been added successfully.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-primary" id="modal-ok">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "firebase/app";
+      import { getAnalytics } from "firebase/analytics";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyAan82ruQFx84DZ7Z92fu_JJNaLsmWHAA0",
+        authDomain: "my-ai-based-event-calendar.firebaseapp.com",
+        projectId: "my-ai-based-event-calendar",
+        storageBucket: "my-ai-based-event-calendar.firebasestorage.app",
+        messagingSenderId: "194987799977",
+        appId: "1:194987799977:web:a229600b72dc8e4ab2c0b8",
+        measurementId: "G-5NRSEK0DP2",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script> -->
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        getDocs,
+      } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyAan82ruQFx84DZ7Z92fu_JJNaLsmWHAA0",
+        authDomain: "my-ai-based-event-calendar.firebaseapp.com",
+        projectId: "my-ai-based-event-calendar",
+        storageBucket: "my-ai-based-event-calendar.firebasestorage.app",
+        messagingSenderId: "194987799977",
+        appId: "1:194987799977:web:a229600b72dc8e4ab2c0b8",
+        measurementId: "G-5NRSEK0DP2",
+      };
+
+      // Initialize Firebase + Firestore
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      console.log("Firebase initialized successfully!");
+
+      // Function to add event data
+      async function addEvent() {
+        const title = document.getElementById("event-title").value;
+        const link = document.getElementById("event-link").value;
+        const day = document.getElementById("day").value;
+        const month = document.getElementById("month").value;
+        const year = document.getElementById("year").value;
+        const hours = document.getElementById("hours").value;
+        const minutes = document.getElementById("minutes").value;
+
+        const dateString = `${year}-${month}-${day} ${hours}:${minutes}`;
+
+        try {
+          const docRef = await addDoc(collection(db, "events"), {
+            title,
+            link,
+            date: dateString,
+            createdAt: new Date(),
+          });
+          console.log("Event added with ID: ", docRef.id);
+
+          alert("Event added successfully!");
+        } catch (e) {
+          console.error("Error adding event: ", e);
+        }
+      }
+
+      // Attach button event
+      document.getElementById("add-event").addEventListener("click", addEvent);
+
+      // (Optional) Fetch and log all events
+      async function getEvents() {
+        const querySnapshot = await getDocs(collection(db, "events"));
+        querySnapshot.forEach((doc) => {
+          console.log(doc.id, " => ", doc.data());
+        });
+      }
+
+      // Run once to log current data
+      getEvents();
+    </script>
+  </body>
+</html>
